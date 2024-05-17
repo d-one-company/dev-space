@@ -13,6 +13,7 @@ const config: Config = {
         'rangoon-green': '#1E1E1B',
         'oslo-gray': '#8C8C8C',
         onyx: '#120F0E',
+        gainsboro: '#DEDDDC',
       },
     },
   },
