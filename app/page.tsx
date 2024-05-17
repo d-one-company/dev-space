@@ -9,7 +9,6 @@ export default async function Page() {
 
   return (
     <section>
-      <h1>Home</h1>
       <div>
         {user ? (
           <div className="flex flex-col gap-2">
