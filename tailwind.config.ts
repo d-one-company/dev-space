@@ -15,6 +15,7 @@ const config: Config = {
         onyx: '#120F0E',
         gainsboro: '#DEDDDC',
         'battleship-gray': '#818282',
+        liver: '#4D4B4B',
       },
     },
   },
