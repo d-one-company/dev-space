@@ -14,6 +14,7 @@ const config: Config = {
         'oslo-gray': '#8C8C8C',
         onyx: '#120F0E',
         gainsboro: '#DEDDDC',
+        'battleship-gray': '#818282',
       },
     },
   },
