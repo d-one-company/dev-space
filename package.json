@@ -22,12 +22,15 @@
     "db:migrate": "node --import tsx --env-file .env ./db/migrate.ts"
   },
   "dependencies": {
+    "@t3-oss/env-nextjs": "^0.10.1",
     "cross-env": "^7.0.3",
     "husky": "^9.0.11",
+    "jiti": "^1.21.0",
     "next": "14.2.3",
     "prettier": "^3.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",
