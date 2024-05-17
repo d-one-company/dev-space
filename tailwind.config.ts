@@ -11,6 +11,8 @@ const config: Config = {
       colors: {
         'gold-drop': '#F1840A',
         'rangoon-green': '#1E1E1B',
+        'oslo-gray': '#8C8C8C',
+        onyx: '#120F0E',
       },
     },
   },
