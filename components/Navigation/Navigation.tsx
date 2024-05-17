@@ -1,3 +1,6 @@
+'use client';
+
+import { signOut } from 'next-auth/react';
 import { Button } from '../Button';
 import Bell from '../icons/Bell';
 import Bookmark from '../icons/Bookmark';
@@ -17,7 +20,9 @@ const Navigation = () => {
       </div>
       <div className="flex flex-col items-start gap-4">
         {/* todo: figure out design for this */}
-        <Button className="bg-red-500/80 text-white hover:bg-red-500/60">Logout</Button>
+        <Button className="bg-red-500/80 text-white hover:bg-red-500/60" onClick={() => signOut()}>
+          Logout
+        </Button>
         <ThemeSwitch />
       </div>
     </aside>
