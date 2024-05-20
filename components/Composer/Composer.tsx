@@ -1,23 +1,18 @@
 'use client';
 
 import { CodeHighlightNode, CodeNode } from '@lexical/code';
-import { AutoLinkNode, LinkNode } from '@lexical/link';
-import { ListItemNode, ListNode } from '@lexical/list';
-import { TRANSFORMERS } from '@lexical/markdown';
 import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
-import { LinkPlugin } from '@lexical/react/LexicalLinkPlugin';
-import { ListPlugin } from '@lexical/react/LexicalListPlugin';
-import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
-import { HeadingNode, QuoteNode } from '@lexical/rich-text';
 import exampleTheme from './ExampleTheme';
-import ToolbarPlugin from './Toolbar';
 import './composer.css';
+import { ImageNode } from './nodes/ImageNode';
 import CodeHighlightPlugin from './plugins/CodeHighlightPlugin';
+import ImagesPlugin from './plugins/ImagePlugin';
+import ToolbarPlugin from './plugins/ToolbarPlugin';
 
 const editorConfig = {
   namespace: 'rich-text-editor',
@@ -25,7 +20,7 @@ const editorConfig = {
   onError(error: Error) {
     throw error;
   },
-  nodes: [HeadingNode, ListNode, ListItemNode, QuoteNode, CodeNode, CodeHighlightNode, AutoLinkNode, LinkNode],
+  nodes: [ImageNode, CodeNode, CodeHighlightNode],
 };
 
 export default function Editor() {
@@ -39,9 +34,7 @@ export default function Editor() {
       <HistoryPlugin />
       <AutoFocusPlugin />
       <CodeHighlightPlugin />
-      <ListPlugin />
-      <LinkPlugin />
-      <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
+      <ImagesPlugin />
       <ToolbarPlugin />
     </LexicalComposer>
   );
