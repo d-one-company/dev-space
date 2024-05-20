@@ -50,12 +50,12 @@ function ToolbarPlugin() {
   };
 
   return (
-    <div className="bg-rangoon-green flex w-full items-center gap-5 rounded-b-xl px-5 py-2" ref={toolbarRef}>
+    <div className="bg-rangoon-green flex w-full items-center gap-2 rounded-b-xl px-5 py-2 transition-colors duration-200" ref={toolbarRef}>
       <Button className="hover:bg-battleship-gray/20 bg-transparent text-white" onClick={toggleCodeBlock}>
         <Code />
       </Button>
       <input ref={fileInputRef} type="file" style={{ display: 'none' }} accept="image/*" onChange={handleImageUpload} />
-      <Button className="hover:bg-battleship-gray/20 bg-transparent text-white" onClick={() => fileInputRef.current?.click()}>
+      <Button className="hover:bg-battleship-gray/20 bg-transparent text-white transition-colors duration-200" onClick={() => fileInputRef.current?.click()}>
         <Camera />
       </Button>
     </div>
