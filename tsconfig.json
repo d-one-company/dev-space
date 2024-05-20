@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Composer/plugins/ToolbarPlugin.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Composer/plugins/Toolbar/ToolbarPlugin.tsx"],
   "exclude": ["node_modules"]
 }

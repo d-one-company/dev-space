@@ -12,7 +12,7 @@ import './composer.css';
 import { ImageNode } from './nodes/ImageNode';
 import CodeHighlightPlugin from './plugins/CodeHighlightPlugin';
 import ImagesPlugin from './plugins/ImagePlugin';
-import ToolbarPlugin from './plugins/ToolbarPlugin';
+import ToolbarPlugin from './plugins/Toolbar/ToolbarPlugin';
 
 const editorConfig = {
   namespace: 'rich-text-editor',
@@ -28,11 +28,13 @@ export default function Editor() {
     <LexicalComposer initialConfig={editorConfig}>
       <RichTextPlugin
         contentEditable={
-          <ContentEditable className="bg-onyx/60 text-battleship-gray flex h-60 w-full flex-col overflow-y-scroll rounded-t-xl border border-transparent p-4 outline-none" />
+          <ContentEditable className="bg-onyx/60 text-battleship-gray flex h-60 w-full flex-col overflow-y-scroll rounded-t-xl border border-transparent px-4 pt-4 outline-none" />
         }
         placeholder={<div className="text-carbon-gray absolute left-4 top-4">New Post</div>}
         ErrorBoundary={LexicalErrorBoundary}
       />
+      <PlainTextPlugin contentEditable={<ContentEditable />} placeholder={<div>Enter some text...</div>} ErrorBoundary={LexicalErrorBoundary} />
+
       <HistoryPlugin />
       <AutoFocusPlugin />
       <CodeHighlightPlugin />
