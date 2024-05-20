@@ -1,4 +1,4 @@
-import { timestamp, text, pgTableCreator, integer, primaryKey } from 'drizzle-orm/pg-core';
+import { timestamp, text, pgTableCreator, integer, primaryKey, boolean } from 'drizzle-orm/pg-core';
 import { createId } from '@paralleldrive/cuid2';
 
 const pgTable = pgTableCreator(name => `dev_space_${name}`);
@@ -35,3 +35,47 @@ export const accounts = pgTable(
     }),
   })
 );
+
+export const posts = pgTable('post', {
+  id: text('id').primaryKey().$default(createId),
+  userId: text('userId')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  content: text('content'),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  updatedAt: timestamp('updated_at'),
+});
+
+export const notifications = pgTable('notification', {
+  id: text('id').primaryKey().$default(createId),
+  userId: text('userId')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+  isRead: boolean('is_read').notNull().default(false),
+  type: text('type', { enum: ['follow', 'like', 'newPost'] }).notNull(),
+  postId: text('postId').references(() => posts.id, { onDelete: 'cascade' }),
+  createdBy: text('created_by').references(() => users.id, { onDelete: 'cascade' }),
+});
+
+export const likes = pgTable('like', {
+  id: text('id').primaryKey().$default(createId),
+  userId: text('userId')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  postId: text('postId')
+    .notNull()
+    .references(() => posts.id, { onDelete: 'cascade' }),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const follows = pgTable('follow', {
+  id: text('id').primaryKey().$default(createId),
+  userId: text('userId')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  followerId: text('followerId')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
