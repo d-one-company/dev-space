@@ -1,8 +1,4 @@
-const exampleTheme = {
-  text: {
-    underlineStrikethrough: 'editor-text-underlineStrikethrough',
-    code: 'editor-text-code',
-  },
+const editorTheme = {
   code: 'editor-code',
   codeHighlight: {
     atrule: 'editor-tokenAttr',
@@ -38,4 +34,4 @@ const exampleTheme = {
   },
 };
 
-export default exampleTheme;
+export default editorTheme;
