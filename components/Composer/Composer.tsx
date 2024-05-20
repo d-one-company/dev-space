@@ -34,20 +34,18 @@ export default function Editor() {
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <div className="">
+        <RichTextPlugin
+          contentEditable={<ContentEditable className="border-gold-drop text-battleship-gray flex min-h-80 w-full flex-col rounded-t-xl border p-4 outline-none" />}
+          placeholder={<div className="text-carbon-gray absolute left-4 top-4">New Post</div>}
+          ErrorBoundary={LexicalErrorBoundary}
+        />
+        <HistoryPlugin />
+        <AutoFocusPlugin />
+        <CodeHighlightPlugin />
+        <ListPlugin />
+        <LinkPlugin />
+        <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
         <ToolbarPlugin />
-        <div className="">
-          <RichTextPlugin
-            contentEditable={<ContentEditable className="border-gold-drop flex min-h-80 w-full flex-col rounded-xl border p-2 outline-none" />}
-            placeholder={<div className="absolute left-[9px] top-[54px]">Enter some text...</div>}
-            ErrorBoundary={LexicalErrorBoundary}
-          />
-          <HistoryPlugin />
-          <AutoFocusPlugin />
-          <CodeHighlightPlugin />
-          <ListPlugin />
-          <LinkPlugin />
-          <MarkdownShortcutPlugin transformers={TRANSFORMERS} />
-        </div>
       </div>
     </LexicalComposer>
   );
