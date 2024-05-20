@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button';
 import { $createCodeNode, $isCodeNode } from '@lexical/code';
 import { $createTextNode, $getSelection, $isRangeSelection, LexicalEditor } from 'lexical';
-import { Code } from 'lucide-react';
+import { FileCode } from 'lucide-react';
 
 type Props = { editor: LexicalEditor };
 
@@ -29,7 +29,7 @@ const CodeInput = ({ editor }: Props) => {
   }
   return (
     <Button className="hover:bg-battleship-gray/20 bg-transparent text-white transition-colors duration-200" onClick={toggleCodeBlock}>
-      <Code />
+      <FileCode />
     </Button>
   );
 };
