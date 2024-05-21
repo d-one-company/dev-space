@@ -81,9 +81,8 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
     });
     const nestedEditor = node.__caption;
     const editorState = nestedEditor.parseEditorState(caption.editorState);
-    if (!editorState.isEmpty()) {
-      nestedEditor.setEditorState(editorState);
-    }
+    if (!editorState.isEmpty()) nestedEditor.setEditorState(editorState);
+
     return node;
   }
 
@@ -150,15 +149,12 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
     writable.__showCaption = showCaption;
   }
 
-  // View
-
   createDOM(config: EditorConfig): HTMLElement {
     const span = document.createElement('span');
     const theme = config.theme;
     const className = theme.image;
-    if (className !== undefined) {
-      span.className = className;
-    }
+    if (className !== undefined) span.className = className;
+
     return span;
   }
 

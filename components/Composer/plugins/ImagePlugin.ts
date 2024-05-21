@@ -12,9 +12,7 @@ export default function ImagesPlugin({ captionsEnabled }: { captionsEnabled?: bo
   const [editor] = useLexicalComposerContext();
 
   useEffect(() => {
-    if (!editor.hasNodes([ImageNode])) {
-      throw new Error('ImagesPlugin: ImageNode not registered on editor');
-    }
+    if (!editor.hasNodes([ImageNode])) throw new Error('ImagesPlugin: ImageNode not registered on editor');
 
     return mergeRegister(
       editor.registerCommand<InsertImagePayload>(
@@ -22,9 +20,7 @@ export default function ImagesPlugin({ captionsEnabled }: { captionsEnabled?: bo
         payload => {
           const imageNode = $createImageNode(payload);
           $insertNodes([imageNode]);
-          if ($isRootOrShadowRoot(imageNode.getParentOrThrow())) {
-            $wrapNodeInElement(imageNode, $createParagraphNode).selectEnd();
-          }
+          if ($isRootOrShadowRoot(imageNode.getParentOrThrow())) $wrapNodeInElement(imageNode, $createParagraphNode).selectEnd();
 
           return true;
         },

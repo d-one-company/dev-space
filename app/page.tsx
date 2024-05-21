@@ -1,8 +1,8 @@
 import { authOptions } from '@/auth';
-import SignIn from './SignIn';
+import Editor from '@/components/Composer/Composer';
 import { getServerSession } from 'next-auth';
 import Image from 'next/image';
-import Editor from '@/components/Composer/Composer';
+import SignIn from './SignIn';
 
 export default async function Page() {
   const session = await getServerSession(authOptions);
