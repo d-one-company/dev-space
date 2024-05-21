@@ -16,6 +16,7 @@ const config: Config = {
         gainsboro: '#DEDDDC',
         'battleship-gray': '#818282',
         liver: '#4D4B4B',
+        'carbon-gray': '#5A5B59',
       },
     },
   },
