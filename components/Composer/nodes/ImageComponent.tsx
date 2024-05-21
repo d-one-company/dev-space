@@ -1,5 +1,5 @@
+'use client';
 import type { LexicalEditor, NodeKey } from 'lexical';
-
 import { Suspense, useRef } from 'react';
 
 const imageCache = new Set();
