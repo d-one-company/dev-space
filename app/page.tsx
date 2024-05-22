@@ -1,5 +1,5 @@
 import { authOptions } from '@/auth';
-import Editor from '@/components/Composer/Composer';
+import Feed from '@/components/Feed/Feed';
 import { getServerSession } from 'next-auth';
 import SignIn from './SignIn';
 
@@ -9,17 +9,7 @@ export default async function Page() {
 
   return (
     <section>
-      <div>
-        {user ? (
-          <div className="flex flex-col gap-2">
-            <div className="relative">
-              <Editor />
-            </div>
-          </div>
-        ) : (
-          <SignIn />
-        )}
-      </div>
+      <div>{user ? <Feed /> : <SignIn />}</div>
     </section>
   );
 }

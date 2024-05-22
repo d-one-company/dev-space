@@ -19,6 +19,8 @@ const config: Config = {
         'carbon-gray': '#5A5B59',
         night: '#0A0702',
         'davy-gray': '#555655',
+        'coral-red': '#F43F41',
+        gondola: '#251813',
       },
     },
   },
