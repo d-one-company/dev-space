@@ -3,14 +3,17 @@ import { db } from '@/db';
 import { feed } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { getServerSession } from 'next-auth';
+import { redirect } from 'next/navigation';
 
 export default async function getFeed() {
+  const session = await getServerSession(authOptions);
+  const userId = session?.user?.id;
+
+  if (!userId) {
+    redirect('/signin');
+  }
+
   try {
-    const session = await getServerSession(authOptions);
-    const userId = session?.user?.id;
-
-    if (!userId) throw new Error('Unauthorized');
-
     const userFeed = await db.query.feed.findMany({
       where: eq(feed.userId, userId),
       with: {

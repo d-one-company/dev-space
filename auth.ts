@@ -5,6 +5,7 @@ import { db } from './db';
 import type { NextAuthOptions } from 'next-auth';
 import type { Adapter } from 'next-auth/adapters';
 import { accounts, users } from './db/schema';
+import generateUniqueUsername from './lib/utils/generateUniqueUsername';
 
 export const authOptions: NextAuthOptions = {
   pages: { signIn: '/signin' },
@@ -15,12 +16,13 @@ export const authOptions: NextAuthOptions = {
     Google({
       clientId: env.GOOGLE_CLIENT_ID,
       clientSecret: env.GOOGLE_CLIENT_SECRET,
-      profile: profile => {
+      profile: async profile => {
         return {
           id: profile.sub,
           name: profile.name,
           email: profile.email,
           image: `https://api.dicebear.com/7.x/initials/png?seed=${encodeURIComponent(profile.name)}`,
+          username: await generateUniqueUsername(profile.email),
         };
       },
     }),
