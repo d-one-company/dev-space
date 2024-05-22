@@ -7,6 +7,7 @@ const pgTable = pgTableCreator(name => `dev_space_${name}`);
 export const users = pgTable('user', {
   id: text('id').primaryKey().$default(createId),
   name: text('name'),
+  username: text('username').unique(),
   email: text('email').notNull().unique(),
   emailVerified: timestamp('emailVerified', { mode: 'date' }),
   image: text('image'),

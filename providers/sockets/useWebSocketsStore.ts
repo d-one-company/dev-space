@@ -65,7 +65,6 @@ const useWebSocketsStore = () => {
     },
 
     startSocket(userId: string) {
-      console.info('Starting socket for user: ', store.posts);
       pusherClient.subscribe(userId);
     },
 
@@ -84,7 +83,6 @@ const useWebSocketsStore = () => {
       });
 
       pusherClient.bind('post:new', (data: Post) => {
-        console.log('new post websocket trigger: ', data);
         store.addPost(data);
       });
 
