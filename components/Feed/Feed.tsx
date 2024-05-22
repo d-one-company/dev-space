@@ -2,8 +2,13 @@ import { Flame, Heart, Rocket } from 'lucide-react';
 import Editor from '../Composer/Composer';
 import Post from '../Post/Post';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../Tabs';
+import type { Post as TPost } from '@/types/posts';
 
-const Feed = () => {
+type FeedProps = {
+  posts: TPost[];
+};
+
+const Feed = ({ posts }: FeedProps) => {
   return (
     <div className="flex w-full flex-col items-start px-10 py-10">
       <div className="relative w-full">
@@ -24,9 +29,7 @@ const Feed = () => {
             Rising
           </TabsTrigger>
         </TabsList>
-        <TabsContent value="account">
-          <Post />
-        </TabsContent>
+        <TabsContent value="account">{posts?.map(post => <Post key={post.id} post={post} />)}</TabsContent>
       </Tabs>
     </div>
   );
