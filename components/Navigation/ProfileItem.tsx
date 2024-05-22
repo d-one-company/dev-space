@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/cn';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cloneElement } from 'react';
@@ -18,11 +18,11 @@ const ProfileItem = ({ className, label, href = '#' }: Props) => {
   const selected = pathname === href;
 
   return (
-    <div className={cn('text-gainsboro flex w-full items-center justify-between rounded-lg px-4 py-2')}>
+    <div className={cn('flex w-full items-center justify-between rounded-lg px-4 py-2 text-gainsboro')}>
       <Link
         className={cn(
-          'text-gainsboro flex w-full items-center justify-between rounded-lg',
-          'hover:text-gainsboro/80 transition-colors duration-200',
+          'flex w-full items-center justify-between rounded-lg text-gainsboro',
+          'transition-colors duration-200 hover:text-gainsboro/80',
           selected && 'text-gold-drop hover:text-gold-drop',
           className
         )}

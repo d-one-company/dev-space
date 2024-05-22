@@ -1,9 +1,15 @@
-import Editor from '@/components/Composer/Composer';
+import Feed from '@/components/Feed/Feed';
+import getFeed from '@/lib/queries/getFeed';
+import { getServerSession } from 'next-auth';
 
-const Page = () => {
+const Page = async () => {
+  const session = await getServerSession();
+
+  const posts = await getFeed();
+
   return (
     <section>
-      <Editor />
+      <Feed posts={posts} />
     </section>
   );
 };

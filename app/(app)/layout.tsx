@@ -15,7 +15,7 @@ const Layout = async ({ children }: PropsWithChildren) => {
     return redirect('/signin');
   }
 
-  const posts = await getFeed(userId);
+  const posts = await getFeed();
 
   return (
     <WebSocketsProvider initialData={{ notifications: [], posts }} userId={userId}>
