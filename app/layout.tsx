@@ -1,9 +1,9 @@
-import Navigation from '@/components/Navigation/Navigation';
-import TopBar from '@/components/TopBar';
 import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import SessionProvider from '@/providers/SessionProvider';
+import AuthProvider from '@/providers/AuthProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,11 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(inter.className, 'bg-night')}>
-        <TopBar />
-        <div className="flex md:grid md:grid-cols-[280px_auto]">
-          <Navigation />
-          {children}
-        </div>
+        <SessionProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </SessionProvider>
       </body>
     </html>
   );

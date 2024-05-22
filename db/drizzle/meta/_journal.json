@@ -8,6 +8,20 @@
       "when": 1715962457907,
       "tag": "0000_long_the_watchers",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1716208673168,
+      "tag": "0001_small_black_bolt",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1716300410226,
+      "tag": "0002_bumpy_enchantress",
+      "breakpoints": true
     }
   ]
 }
