@@ -1,11 +1,13 @@
+import { getTimePassed } from '@/lib/utils/getTimePassed';
 import { Avatar, AvatarImage } from '../Avatar';
 import type { Post } from '@/types/posts';
 
-type PostProfileProps = {
+type PostInfo = {
   author: Post['author'];
+  createdAt: Date;
 };
 
-const PostProfile = ({ author }: PostProfileProps) => {
+const PostInfo = ({ author, createdAt }: PostInfo) => {
   return (
     <div className="flex items-center gap-2">
       <Avatar className="size-9">
@@ -13,10 +15,10 @@ const PostProfile = ({ author }: PostProfileProps) => {
       </Avatar>
       <div className="flex flex-col items-start justify-between">
         <p className="text-base">{author?.name}</p>
-        <p className="text-davy-gray text-sm">2 hours ago</p>
+        <p className="text-davy-gray text-sm">{getTimePassed(createdAt)}</p>
       </div>
     </div>
   );
 };
 
-export default PostProfile;
+export default PostInfo;
