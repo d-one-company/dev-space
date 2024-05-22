@@ -1,11 +1,14 @@
 'use client';
 
+import { Post } from '@/types/posts';
 import { CodeHighlightNode, CodeNode } from '@lexical/code';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import { ImageNode } from '../Composer/nodes/ImageNode';
 
-const PostContent = () => {
+type Props = { post: Post };
+
+const PostContent = ({ post }: Props) => {
   const editorConfig = {
     namespace: 'text-editor',
     theme: {},
