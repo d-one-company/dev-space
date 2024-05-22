@@ -42,18 +42,16 @@ const useWebSocketsStore = () => {
     posts: observable.array([], { autoBind: true }),
 
     setInitialData({ posts, notifications }) {
-      store.posts.replace(posts);
-      store.notifications.notificationsList = notifications;
-      // for (let i = 0; i < posts.length; i++) {
-      //   const index = store.posts.findIndex(p => p.id === posts[i].id);
-      //   if (index === -1) {
-      //     store.posts.push(posts[i]);
-      //   }
-      // }
-      // for (const notification of notifications) {
-      //   notifications.push(notification);
-      //   if (notification.isRead === false) store.notifications.unreadCount++;
-      // }
+      for (let i = 0; i < posts.length; i++) {
+        const index = store.posts.findIndex(p => p.id === posts[i].id);
+        if (index === -1) {
+          store.posts.push(posts[i]);
+        }
+      }
+      for (const notification of notifications) {
+        notifications.push(notification);
+        if (notification.isRead === false) store.notifications.unreadCount++;
+      }
     },
 
     markAsRead(notificationId: string) {
