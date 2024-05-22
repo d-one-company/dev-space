@@ -17,6 +17,8 @@ const config: Config = {
         'battleship-gray': '#818282',
         liver: '#4D4B4B',
         'carbon-gray': '#5A5B59',
+        night: '#0A0702',
+        'davy-gray': '#555655',
       },
     },
   },
