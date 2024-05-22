@@ -5,6 +5,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/auth';
 import { redirect } from 'next/navigation';
 import getFeed from '@/lib/queries/getFeed';
+import TopBar from '@/components/TopBar';
 
 const Layout = async ({ children }: PropsWithChildren) => {
   const session = await getServerSession(authOptions);
@@ -18,6 +19,7 @@ const Layout = async ({ children }: PropsWithChildren) => {
 
   return (
     <WebSocketsProvider initialData={{ notifications: [], posts }} userId={userId}>
+      <TopBar />
       <div className="flex md:grid md:grid-cols-[280px_auto]">
         <Navigation />
         {children}

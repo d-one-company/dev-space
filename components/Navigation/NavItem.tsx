@@ -12,9 +12,10 @@ type Props = {
   label: string;
   href?: string;
   badgeNumber?: number;
+  disabled?: boolean;
 };
 
-const NavItem = ({ className, icon, label, badgeNumber, href = '#' }: Props) => {
+const NavItem = ({ className, icon, label, badgeNumber, disabled, href = '#' }: Props) => {
   const pathname = usePathname();
   const selected = pathname === href;
 
@@ -22,9 +23,10 @@ const NavItem = ({ className, icon, label, badgeNumber, href = '#' }: Props) => 
     <Link
       href={href}
       className={cn(
-        'text-gainsboro flex w-full items-center justify-between gap-4 rounded-lg px-4 py-2',
-        'hover:text-gainsboro/80 transition-colors duration-200',
+        'flex w-full items-center justify-between gap-4 rounded-lg px-4 py-2 text-gainsboro',
+        'transition-colors duration-200 hover:text-gainsboro/80',
         selected && 'text-gold-drop hover:text-gold-drop',
+        disabled && 'pointer-events-none cursor-not-allowed text-gainsboro/50',
         className
       )}
     >
