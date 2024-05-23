@@ -20,7 +20,6 @@ const PostContent = ({ post }: Props) => {
   const prepopulateValue = () => {
     try {
       const editor = $getEditor();
-
       editor.setEditorState(editor.parseEditorState(post.content));
     } catch (error) {
       console.error(error);
@@ -28,8 +27,9 @@ const PostContent = ({ post }: Props) => {
   };
 
   const editorConfig: EditorConfig = {
-    namespace: 'text-editor',
+    namespace: 'post',
     editorState: prepopulateValue,
+    editable: false,
     theme: editorTheme,
     onError(error: Error) {
       throw error;
@@ -45,10 +45,7 @@ const PostContent = ({ post }: Props) => {
           placeholder={null}
           ErrorBoundary={LexicalErrorBoundary}
           contentEditable={
-            <ContentEditable
-              contentEditable={false}
-              className="flex max-h-screen min-h-60 w-full flex-col overflow-y-scroll rounded-t-xl border border-transparent bg-onyx/60 px-4 pt-4 text-battleship-gray outline-none"
-            />
+            <ContentEditable className="flex max-h-screen min-h-60 w-full flex-col overflow-y-scroll rounded-t-xl border border-transparent bg-onyx/60 px-4 pt-4 text-battleship-gray outline-none" />
           }
         />
       </LexicalComposer>
