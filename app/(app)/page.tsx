@@ -1,5 +1,5 @@
 import Feed from '@/components/Feed/Feed';
-import getFeed from '@/lib/queries/getFeed';
+import getFeed from '@/lib/queries/posts/getFeed';
 
 const Page = async () => {
   const posts = await getFeed();

@@ -4,7 +4,7 @@ import WebSocketsProvider from '@/providers/sockets';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/auth';
 import { redirect } from 'next/navigation';
-import getFeed from '@/lib/queries/getFeed';
+import getFeed from '@/lib/queries/posts/getFeed';
 import TopBar from '@/components/TopBar';
 
 const Layout = async ({ children }: PropsWithChildren) => {
