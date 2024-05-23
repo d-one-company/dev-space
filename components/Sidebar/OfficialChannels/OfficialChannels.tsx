@@ -40,4 +40,4 @@ const OfficianlChannels = (props: Props) => {
   );
 };
 
-export default OfficianlChannels;
+export default OfficialChannels;
