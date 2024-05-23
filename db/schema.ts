@@ -219,10 +219,10 @@ export const feed = pgTable('feed', {
   userId: text('userId')
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
-
   postAuthorId: text('postAuthorId')
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
+
   postId: text('postId')
     .notNull()
     .references(() => posts.id, { onDelete: 'cascade' }),
