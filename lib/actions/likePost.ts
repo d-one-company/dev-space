@@ -1,7 +1,8 @@
 import { authOptions } from '@/auth';
 import { db } from '@/db';
-import { posts, likes } from '@/db/schema';
+import { likes } from '@/db/schema';
 import { getServerSession } from 'next-auth';
+import clearCachesByServerAction from '../utils/revalidatePath';
 
 export default async function likePost(postId: string) {
   const session = await getServerSession(authOptions);
@@ -18,6 +19,8 @@ export default async function likePost(postId: string) {
       .returning();
 
     // Create a notification for the post
+
+    clearCachesByServerAction('/');
 
     return like;
   } catch (error) {}
