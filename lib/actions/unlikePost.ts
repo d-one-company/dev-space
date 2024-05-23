@@ -1,8 +1,9 @@
 import { authOptions } from '@/auth';
 import { db } from '@/db';
-import { posts, likes, notifications } from '@/db/schema';
+import { likes } from '@/db/schema';
+import { and, eq } from 'drizzle-orm';
 import { getServerSession } from 'next-auth';
-import { eq, and } from 'drizzle-orm';
+import clearCachesByServerAction from '../utils/revalidatePath';
 
 export default async function unlikePost(postId: string) {
   const session = await getServerSession(authOptions);
@@ -10,10 +11,11 @@ export default async function unlikePost(postId: string) {
   if (!userId) throw new Error('Unauthorized');
 
   try {
-    await db.delete(likes).where(and(eq(posts.userId, userId), eq(posts.id, postId)));
-    await db.delete(notifications).where(and(eq(notifications.postId, postId), eq(notifications.userId, userId), eq(notifications.type, 'like')));
+    await db.delete(likes).where(and(eq(likes.postId, postId), eq(likes.userId, userId)));
 
     // Trigger websocket event here
+
+    clearCachesByServerAction('/');
 
     return true;
   } catch (error) {
