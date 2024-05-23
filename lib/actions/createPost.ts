@@ -40,6 +40,7 @@ export default async function createPost(content: string) {
         });
 
         await db.insert(feed).values({
+          postAuthorId: userId,
           userId: follower.followerId,
           postId: post.id,
         });
@@ -54,6 +55,7 @@ export default async function createPost(content: string) {
     }
     // Update the user's feed
     await db.insert(feed).values({
+      postAuthorId: userId,
       userId,
       postId: post.id,
     });
