@@ -1,9 +1,11 @@
+import { Toaster } from '@/components/Toast';
 import { cn } from '@/lib/utils/cn';
+import AuthProvider from '@/providers/AuthProvider';
+import { ReactQueryProvider } from '@/providers/QueryClientProvider';
+import SessionProvider from '@/providers/SessionProvider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import SessionProvider from '@/providers/SessionProvider';
-import AuthProvider from '@/providers/AuthProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +20,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(inter.className, 'bg-night')}>
         <SessionProvider>
-          <AuthProvider>{children}</AuthProvider>
+          <ReactQueryProvider>
+            <AuthProvider>{children}</AuthProvider>
+            <Toaster />
+          </ReactQueryProvider>
         </SessionProvider>
       </body>
     </html>

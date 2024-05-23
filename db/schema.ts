@@ -1,6 +1,6 @@
-import { timestamp, text, pgTableCreator, integer, primaryKey, boolean } from 'drizzle-orm/pg-core';
 import { createId } from '@paralleldrive/cuid2';
 import { relations } from 'drizzle-orm';
+import { boolean, integer, pgTableCreator, primaryKey, text, timestamp } from 'drizzle-orm/pg-core';
 
 const pgTable = pgTableCreator(name => `dev_space_${name}`);
 
@@ -21,6 +21,10 @@ export const usersRelations = relations(users, ({ one, many }) => ({
 
   givenLikes: many(likes, {
     relationName: 'likingUser',
+  }),
+
+  givenBookmarks: many(bookmarks, {
+    relationName: 'bookmarkingUser',
   }),
 
   receivedNotifications: many(notifications, {
@@ -91,6 +95,10 @@ export const postsRelations = relations(posts, ({ one, many }) => ({
   receivedLikes: many(likes, {
     relationName: 'likedPost',
   }),
+  receivedBookmarks: many(bookmarks, {
+    relationName: 'bookmarkedPost',
+  }),
+
   relatedNotifications: many(notifications, {
     relationName: 'relatedPost',
   }),
@@ -124,6 +132,31 @@ export const likesRelations = relations(likes, ({ one, many }) => ({
   }),
 }));
 
+export const bookmarks = pgTable('bookmark', {
+  id: text('id').primaryKey().$default(createId),
+  userId: text('userId')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+  postId: text('postId')
+    .notNull()
+    .references(() => posts.id, { onDelete: 'cascade' }),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
+});
+
+export const bookmarksRelations = relations(bookmarks, ({ one, many }) => ({
+  bookmarkedPost: one(posts, {
+    fields: [bookmarks.postId],
+    references: [posts.id],
+    relationName: 'bookmarkedPost',
+  }),
+
+  bookmarkingUser: one(users, {
+    fields: [bookmarks.userId],
+    references: [users.id],
+    relationName: 'bookmarkingUser',
+  }),
+}));
+
 export const notifications = pgTable('notification', {
   id: text('id').primaryKey().$default(createId),
   userId: text('userId')
@@ -131,7 +164,7 @@ export const notifications = pgTable('notification', {
     .references(() => users.id, { onDelete: 'cascade' }),
   createdAt: timestamp('created_at').notNull().defaultNow(),
   isRead: boolean('is_read').notNull().default(false),
-  type: text('type', { enum: ['follow', 'like', 'newPost'] }).notNull(),
+  type: text('type', { enum: ['follow', 'like', 'newPost', 'bookmark'] }).notNull(),
   postId: text('postId').references(() => posts.id, { onDelete: 'cascade' }),
   createdBy: text('created_by').references(() => users.id, { onDelete: 'cascade' }),
 });

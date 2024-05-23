@@ -2,10 +2,11 @@
 
 import { authOptions } from '@/auth';
 import { db } from '@/db';
+import { feed, follows, notifications, posts } from '@/db/schema';
 import { eq } from 'drizzle-orm';
-import { posts, notifications, follows, feed } from '@/db/schema';
 import { getServerSession } from 'next-auth';
 import pusherServer from '../pusher/pusherServer';
+import clearCachesByServerAction from '../utils/revalidatePath';
 
 export default async function createPost(content: string) {
   const session = await getServerSession(authOptions);
@@ -59,6 +60,8 @@ export default async function createPost(content: string) {
       userId,
       postId: post.id,
     });
+
+    clearCachesByServerAction('/');
 
     return post;
   } catch (error) {
