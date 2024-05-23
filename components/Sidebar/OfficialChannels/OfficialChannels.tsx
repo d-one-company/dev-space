@@ -4,7 +4,7 @@ import TypeScriptIcon from '@/components/icons/TypeScriptIcon';
 import VSCode from '@/components/icons/VSCode';
 import VueJS from '@/components/icons/VueJS';
 import OfficialChannel from './OfficialChannel';
-const OfficianlChannels = (props: Props) => {
+const OfficialChannels = () => {
   const data = [
     {
       name: 'VS Code',
