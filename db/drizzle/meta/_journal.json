@@ -29,20 +29,6 @@
       "when": 1716380301263,
       "tag": "0003_eminent_chameleon",
       "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "6",
-      "when": 1716469183102,
-      "tag": "0004_vengeful_gateway",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "6",
-      "when": 1716469300134,
-      "tag": "0005_hesitant_namora",
-      "breakpoints": true
     }
   ]
 }
