@@ -8,7 +8,6 @@ import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
-import { useState } from 'react';
 import editorTheme from './EditorTheme';
 import './composer.css';
 import { ImageNode } from './nodes/ImageNode';
@@ -26,8 +25,6 @@ const editorConfig = {
 };
 
 export default function Editor() {
-  const [currentContent, setCurrentContent] = useState('');
-
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <RichTextPlugin

@@ -1,7 +1,6 @@
 import { Button } from '@/components/Button';
 import createPost from '@/lib/actions/createPost';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
-import { $getRoot } from 'lexical';
 import { ArrowBigRight } from 'lucide-react';
 import { useRef } from 'react';
 import CodeInput from './Code';
@@ -13,11 +12,8 @@ function ToolbarPlugin() {
 
   const handleCreatePost = () => {
     const stringifiedEditorState = JSON.stringify(editor.getEditorState().toJSON());
-    const parsedEditorState = editor.parseEditorState(stringifiedEditorState);
 
-    const editorStateTextString = parsedEditorState.read(() => $getRoot().getTextContent());
-
-    createPost(editorStateTextString);
+    createPost(stringifiedEditorState);
   };
 
   return (
