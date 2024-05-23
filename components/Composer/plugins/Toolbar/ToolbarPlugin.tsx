@@ -7,7 +7,6 @@ import { ArrowBigRight } from 'lucide-react';
 import { useRef } from 'react';
 import { toast } from 'sonner';
 import CodeInput from './Code';
-import ImageUpload from './ImageUpload';
 
 function ToolbarPlugin() {
   const [editor] = useLexicalComposerContext();
@@ -21,11 +20,8 @@ function ToolbarPlugin() {
   });
 
   return (
-    <div className="flex w-full items-center justify-between rounded-b-xl bg-rangoon-green px-5 py-2" ref={toolbarRef}>
-      <div className="flex items-center gap-2">
-        <CodeInput editor={editor} />
-        <ImageUpload editor={editor} />
-      </div>
+    <div className="flex w-full items-center justify-between rounded-b-xl bg-rangoon-green px-2 py-2" ref={toolbarRef}>
+      <CodeInput editor={editor} />
       <Button
         onClick={() => {
           const stringifiedEditorState = JSON.stringify(editor.getEditorState().toJSON());
