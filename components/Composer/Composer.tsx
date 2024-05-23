@@ -6,7 +6,6 @@ import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
-import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 import editorTheme from './EditorTheme';
 import './composer.css';
@@ -39,11 +38,6 @@ export default function Editor() {
       <CodeHighlightPlugin />
       <ImagesPlugin />
       <ToolbarPlugin />
-      <OnChangePlugin
-        onChange={content => {
-          console.log('content', content);
-        }}
-      />
     </LexicalComposer>
   );
 }

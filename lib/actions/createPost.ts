@@ -2,8 +2,8 @@
 
 import { authOptions } from '@/auth';
 import { db } from '@/db';
+import { feed, follows, notifications, posts } from '@/db/schema';
 import { eq } from 'drizzle-orm';
-import { posts, notifications, follows, feed } from '@/db/schema';
 import { getServerSession } from 'next-auth';
 import pusherServer from '../pusher/pusherServer';
 
