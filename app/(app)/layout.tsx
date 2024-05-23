@@ -1,10 +1,10 @@
 import { authOptions } from '@/auth';
 import Navigation from '@/components/Navigation/Navigation';
-import TopBar from '@/components/TopBar';
-import getFeed from '@/lib/queries/getFeed';
 import WebSocketsProvider from '@/providers/sockets';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
+import getFeed from '@/lib/queries/posts/getFeed';
+import TopBar from '@/components/TopBar';
 import type { PropsWithChildren } from 'react';
 
 const Layout = async ({ children }: PropsWithChildren) => {

@@ -16,6 +16,7 @@ export default async function getFeed() {
   try {
     const userFeed = await db.query.feed.findMany({
       where: eq(feed.userId, userId),
+      orderBy: (posts, { desc }) => [desc(posts.createdAt)],
       with: {
         relatedPost: {
           columns: {
@@ -29,12 +30,12 @@ export default async function getFeed() {
                 id: true,
                 name: true,
                 image: true,
+                username: true,
               },
             },
           },
         },
       },
-      orderBy: (feed, { desc }) => [desc(feed.createdAt)],
     });
 
     return userFeed.map(f => f.relatedPost);

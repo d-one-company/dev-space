@@ -7,5 +7,6 @@ export type Post = {
     id: string;
     name: string | null;
     image: string | null;
+    username: string | null;
   };
 };

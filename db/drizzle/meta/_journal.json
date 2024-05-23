@@ -36,6 +36,20 @@
       "when": 1716469534241,
       "tag": "0004_good_tigra",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1716476068069,
+      "tag": "0005_chunky_expediter",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1716476191336,
+      "tag": "0006_cooing_karma",
+      "breakpoints": true
     }
   ]
 }

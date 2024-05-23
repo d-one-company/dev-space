@@ -46,6 +46,10 @@ export const usersRelations = relations(users, ({ one, many }) => ({
   feedItems: many(feed, {
     relationName: 'relatedUser',
   }),
+
+  feedPosts: many(feed, {
+    relationName: 'postAuthor',
+  }),
 }));
 
 export const accounts = pgTable(
@@ -215,6 +219,10 @@ export const feed = pgTable('feed', {
   userId: text('userId')
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
+  postAuthorId: text('postAuthorId')
+    .notNull()
+    .references(() => users.id, { onDelete: 'cascade' }),
+
   postId: text('postId')
     .notNull()
     .references(() => posts.id, { onDelete: 'cascade' }),
@@ -232,5 +240,11 @@ export const feedRelations = relations(feed, ({ one }) => ({
     fields: [feed.userId],
     references: [users.id],
     relationName: 'relatedUser',
+  }),
+
+  followingUser: one(users, {
+    fields: [feed.postAuthorId],
+    references: [users.id],
+    relationName: 'postAuthor',
   }),
 }));
