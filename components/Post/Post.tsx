@@ -1,8 +1,8 @@
+import type { Post as TPost } from '@/types/posts';
 import { Bookmark } from 'lucide-react';
 import { Button } from '../Button';
 import PostActions from './PostActions/PostActions';
 import PostContent from './PostContent';
-import type { Post as TPost } from '@/types/posts';
 import PostInfo from './PostInfo';
 
 type PostProps = {

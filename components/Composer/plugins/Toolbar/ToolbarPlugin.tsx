@@ -1,10 +1,11 @@
 import { Button } from '@/components/Button';
 import createPost from '@/lib/actions/createPost';
-import clearCachesByServerAction from '@/lib/utils/revalidatePath';
+import { EMPTY_STATE } from '@/lib/consts/editorEmptyState';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { useMutation } from '@tanstack/react-query';
 import { ArrowBigRight } from 'lucide-react';
 import { useRef } from 'react';
+import { toast } from 'sonner';
 import CodeInput from './Code';
 import ImageUpload from './ImageUpload';
 
@@ -15,7 +16,7 @@ function ToolbarPlugin() {
   const mutation = useMutation({
     mutationFn: createPost,
     onSuccess: () => {
-      clearCachesByServerAction('/');
+      toast(<p className="text-red-500">Post created!</p>);
     },
   });
 
@@ -28,6 +29,7 @@ function ToolbarPlugin() {
       <Button
         onClick={() => {
           const stringifiedEditorState = JSON.stringify(editor.getEditorState().toJSON());
+          editor.setEditorState(editor.parseEditorState(EMPTY_STATE));
           mutation.mutate(stringifiedEditorState);
         }}
         className="bg-transparent text-white transition-colors duration-200 hover:bg-battleship-gray/20"

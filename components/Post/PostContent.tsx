@@ -39,7 +39,7 @@ const PostContent = ({ post }: Props) => {
 
   return (
     <div>
-      <LexicalComposer initialConfig={editorConfig}>
+      <LexicalComposer key={post.id} initialConfig={editorConfig}>
         <CodeHighlightPlugin />
         <RichTextPlugin
           placeholder={null}
