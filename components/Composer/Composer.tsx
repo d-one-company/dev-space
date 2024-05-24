@@ -28,9 +28,9 @@ export default function Editor() {
     <LexicalComposer initialConfig={editorConfig}>
       <RichTextPlugin
         contentEditable={
-          <ContentEditable className="flex max-h-screen min-h-60 w-full flex-col overflow-y-scroll rounded-t-xl border border-transparent bg-onyx/60 px-4 pt-4 text-battleship-gray outline-none" />
+          <ContentEditable className="flex max-h-screen min-h-60 w-full flex-col overflow-y-scroll rounded-t-xl border border-transparent bg-onyx/60 px-4 pt-4 text-oslo-gray outline-none" />
         }
-        placeholder={<div className="absolute left-4 top-4 text-davy-gray">New Post</div>}
+        placeholder={<div className="absolute left-4 top-4 text-oslo-gray">New Post</div>}
         ErrorBoundary={LexicalErrorBoundary}
       />
       <HistoryPlugin />

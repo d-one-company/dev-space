@@ -25,7 +25,7 @@ const NavItem = ({ className, icon, label, badgeNumber, disabled, href = '#' }: 
       className={cn(
         'flex w-full items-center justify-between gap-4 rounded-lg px-4 py-2 text-gainsboro',
         'transition-colors duration-200 hover:text-gainsboro/80',
-        selected && 'text-gold-drop hover:text-gold-drop',
+        selected && 'text-foreground hover:text-foreground',
         disabled && 'pointer-events-none cursor-not-allowed text-gainsboro/50',
         className
       )}

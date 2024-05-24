@@ -29,7 +29,7 @@ const OfficialChannels = () => {
   ];
 
   return (
-    <div className="flex w-full flex-col items-start gap-4 px-4">
+    <div className="text-primary-foreground flex w-full flex-col items-start gap-4 px-4">
       <p> Official Channels</p>
       <div className="flex w-full flex-col items-start gap-3">
         {data.map(channel => (

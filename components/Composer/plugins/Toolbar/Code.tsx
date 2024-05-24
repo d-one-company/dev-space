@@ -28,7 +28,7 @@ const CodeInput = ({ editor }: Props) => {
     });
   }
   return (
-    <Button className="hover:bg-battleship-gray/20 bg-transparent text-white transition-colors duration-200" onClick={toggleCodeBlock}>
+    <Button className="bg-transparent text-white transition-colors duration-200 hover:bg-oslo-gray/20" onClick={toggleCodeBlock}>
       <FileCode />
     </Button>
   );

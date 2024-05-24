@@ -20,11 +20,11 @@ const Feed = ({ posts }: FeedProps) => {
             <Heart size={18} fill="#F43F41" stroke="#F43F41" />
             Following
           </TabsTrigger>
-          <TabsTrigger className="pointer-events-none flex items-center gap-2 rounded-lg p-2 text-davy-gray" value="account">
+          <TabsTrigger className="pointer-events-none flex items-center gap-2 rounded-lg p-2 text-oslo-gray" value="account">
             <Flame size={18} fill="#848484" stroke="#848484" />
             Featured
           </TabsTrigger>
-          <TabsTrigger className="pointer-events-none flex items-center gap-2 rounded-lg p-2 text-davy-gray" value="account">
+          <TabsTrigger className="pointer-events-none flex items-center gap-2 rounded-lg p-2 text-oslo-gray" value="account">
             <Rocket size={18} fill="#848484" stroke="#848484" />
             Rising
           </TabsTrigger>

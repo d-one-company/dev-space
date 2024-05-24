@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils/cn';
 import AuthProvider from '@/providers/AuthProvider';
 import { ReactQueryProvider } from '@/providers/QueryClientProvider';
 import SessionProvider from '@/providers/SessionProvider';
+import { ThemeProvider } from '@/providers/ThemesProvider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -21,8 +22,10 @@ export default function RootLayout({
       <body className={cn(inter.className, 'bg-night')}>
         <SessionProvider>
           <ReactQueryProvider>
-            <AuthProvider>{children}</AuthProvider>
-            <Toaster />
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+              <AuthProvider>{children}</AuthProvider>
+              <Toaster />
+            </ThemeProvider>
           </ReactQueryProvider>
         </SessionProvider>
       </body>

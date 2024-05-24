@@ -18,12 +18,12 @@ const ProfileItem = ({ className, label, href = '#' }: Props) => {
   const selected = pathname === href;
 
   return (
-    <div className={cn('flex w-full items-center justify-between rounded-lg px-4 py-2 text-gainsboro')}>
+    <div className={cn('flex w-full items-center justify-between rounded-lg px-4 py-2 text-oslo-gray')}>
       <Link
         className={cn(
-          'flex w-full items-center justify-between rounded-lg text-gainsboro',
-          'transition-colors duration-200 hover:text-gainsboro/80',
-          selected && 'text-gold-drop hover:text-gold-drop',
+          'flex w-full items-center justify-between rounded-lg text-oslo-gray',
+          'transition-colors duration-200 hover:text-oslo-gray/80',
+          selected && 'text-foreground hover:text-foreground',
           className
         )}
         href={href}

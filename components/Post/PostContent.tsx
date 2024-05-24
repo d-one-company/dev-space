@@ -45,7 +45,7 @@ const PostContent = ({ post }: Props) => {
           placeholder={null}
           ErrorBoundary={LexicalErrorBoundary}
           contentEditable={
-            <ContentEditable className="flex max-h-screen min-h-60 w-full flex-col overflow-y-scroll rounded-t-xl border border-transparent bg-onyx/60 px-4 pt-4 text-battleship-gray outline-none" />
+            <ContentEditable className="flex max-h-screen min-h-60 w-full flex-col overflow-y-scroll rounded-t-xl border border-transparent bg-onyx/60 px-4 pt-4 text-oslo-gray outline-none" />
           }
         />
       </LexicalComposer>

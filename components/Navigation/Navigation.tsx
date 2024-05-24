@@ -10,7 +10,7 @@ import Message from '../icons/Message';
 import More from '../icons/More';
 import NavItem from './NavItem';
 import ProfileItem from './ProfileItem';
-import ThemeSwitch from './ThemeSwitch';
+import { ThemeSwitch } from './ThemeSwitch';
 
 const Navigation = () => {
   return (
@@ -21,7 +21,7 @@ const Navigation = () => {
         <NavItem icon={<Message />} label="Messages" href="/messages" disabled />
         <NavItem icon={<Bookmark />} label="Bookmarks" href="/bookmarks" />
         <NavItem icon={<More />} label="More" href="/more" disabled />
-        <div className="h-[1px] w-full bg-rangoon-green" />
+        <div className="bg-secondary-bg h-[1px] w-full" />
         <NavItem icon={<Bell />} label="Notifications" href="/notifications" badgeNumber={3} />
         <ProfileItem label="Profile" href="/profile" />
       </div>
