@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils/cn';
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cloneElement } from 'react';
@@ -17,13 +18,16 @@ const ProfileItem = ({ className, label, href = '#' }: Props) => {
   const pathname = usePathname();
   const selected = pathname === href;
 
+  const { theme } = useTheme();
+
   return (
     <div className={cn('flex w-full items-center justify-between rounded-lg px-4 py-2 text-oslo-gray')}>
       <Link
         className={cn(
-          'text-primary-foreground/80 flex w-full items-center justify-between gap-4 rounded-lg py-2',
-          'hover:text-primary-foreground/50 transition-colors duration-200',
-          selected && 'text-foreground hover:text-foreground',
+          'flex w-full items-center justify-between gap-4 rounded-lg py-2',
+          'transition-colors duration-200',
+          theme === 'dark' ? 'text-white hover:text-white/70' : 'text-black/70 hover:text-black/90',
+          selected && (theme === 'dark' ? 'text-foreground-primary hover:text-foreground-primary' : 'text-foreground hover:text-foreground'),
           className
         )}
         href={href}
