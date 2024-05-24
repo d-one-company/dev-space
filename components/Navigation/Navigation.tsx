@@ -11,8 +11,14 @@ import More from '../icons/More';
 import NavItem from './NavItem';
 import ProfileItem from './ProfileItem';
 import ThemeSwitch from './ThemeSwitch';
+import { useNotificationsStoreContext } from '@/providers/sockets';
+import { Observer } from 'mobx-react-lite';
 
 const Navigation = () => {
+  const {
+    store: { notifications },
+  } = useNotificationsStoreContext();
+
   return (
     <aside className="sticky top-0 col-span-1 hidden h-screen max-h-screen flex-col justify-between px-6 py-8 sm:flex">
       <div className="flex flex-col items-center gap-2">
@@ -22,7 +28,7 @@ const Navigation = () => {
         <NavItem icon={<Bookmark />} label="Bookmarks" href="/bookmarks" />
         <NavItem icon={<More />} label="More" href="/more" disabled />
         <div className="h-[1px] w-full bg-rangoon-green" />
-        <NavItem icon={<Bell />} label="Notifications" href="/notifications" badgeNumber={3} />
+        <Observer>{() => <NavItem icon={<Bell />} label="Notifications" href="/notifications" badgeNumber={notifications.unreadCount} />}</Observer>
         <ProfileItem label="Profile" href="/profile" />
       </div>
       <div className="flex flex-col items-start gap-4">

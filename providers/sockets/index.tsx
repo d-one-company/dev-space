@@ -1,30 +1,32 @@
 'use client';
 
-import { ReactNode, createContext, useContext, useEffect, useState } from 'react';
-import type { Store, Notification } from './useWebSocketsStore';
-import type { Post } from '@/types/posts';
-import useWebSocketsStore from './useWebSocketsStore';
+import { ReactNode, createContext, useContext, useEffect } from 'react';
+import type { Store } from './useNotificationsStore';
+import useNotificationsStore from './useNotificationsStore';
+import { Notification } from '@/types/notifications';
 
-const WebSocketsContext = createContext<{ store: Store }>({ store: undefined as any });
-export const useWebSocketsStoreContext = () => useContext(WebSocketsContext);
+const NotificationsContext = createContext<{ store: Store }>({ store: undefined as any });
+export const useNotificationsStoreContext = () => useContext(NotificationsContext);
 
-type WebSocketsProviderProps = {
+type NotificationsProviderProps = {
   children: ReactNode;
-  initialData: { posts: Post[]; notifications: Notification[] };
+  notifications: Notification[];
   userId: string;
 };
 
-const WebSocketsProvider = ({ children, initialData, userId }: WebSocketsProviderProps) => {
-  const store = useWebSocketsStore();
-  const { setInitialData, readSocket, startSocket } = store;
+const NotificationsProvider = ({ children, notifications, userId }: NotificationsProviderProps) => {
+  const store = useNotificationsStore();
+  const { setInitialData, readSocket, startSocket, socketDisconnect } = store;
 
   useEffect(() => {
-    setInitialData(initialData);
+    setInitialData(notifications);
     startSocket(userId);
     readSocket();
-  }, [initialData, setInitialData, readSocket, startSocket]); // eslint-disable-line
 
-  return <WebSocketsContext.Provider value={{ store }}>{children}</WebSocketsContext.Provider>;
+    return () => socketDisconnect(userId);
+  }, []); // eslint-disable-line
+
+  return <NotificationsContext.Provider value={{ store }}>{children}</NotificationsContext.Provider>;
 };
 
-export default WebSocketsProvider;
+export default NotificationsProvider;

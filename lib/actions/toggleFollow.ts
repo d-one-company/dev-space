@@ -3,8 +3,9 @@
 import { authOptions } from '@/auth';
 import { db } from '@/db';
 import { follows, feed, posts } from '@/db/schema';
-import { and, eq, sql } from 'drizzle-orm';
+import { and, eq } from 'drizzle-orm';
 import { getServerSession } from 'next-auth';
+import createFollowNotification from './createFollowNotification';
 
 export default async function toggleFollow(userId: string) {
   const session = await getServerSession(authOptions);
@@ -21,7 +22,8 @@ export default async function toggleFollow(userId: string) {
       : (await db.insert(follows).values({ followeeId: userId, followerId }),
         (await db.select({ id: posts.id }).from(posts).where(eq(posts.userId, userId))).map(async post => {
           await db.insert(feed).values({ postAuthorId: userId, postId: post.id, userId: followerId });
-        }));
+        }),
+        await createFollowNotification(followerId, userId));
   } catch (error) {
     console.error(error);
     throw new Error('Failed to follow user');
