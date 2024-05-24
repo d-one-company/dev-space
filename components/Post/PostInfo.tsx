@@ -16,11 +16,11 @@ const PostInfo = ({ author, createdAt }: PostInfo) => {
           <AvatarImage src={author?.image || 'https://github.com/shadcn.png'} />
         </Avatar>
       </Link>
-      <div className="flex flex-col items-start justify-between">
+      <div className="text-primary-foreground flex flex-col items-start justify-between">
         <Link href={'/' + author?.username} className="text-base">
           {author?.name}
         </Link>
-        <p className="text-sm text-davy-gray">{getTimePassed(createdAt)}</p>
+        <p className="text-sm text-oslo-gray">{getTimePassed(createdAt)}</p>
       </div>
     </div>
   );

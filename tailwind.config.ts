@@ -1,29 +1,38 @@
 import type { Config } from 'tailwindcss';
 
-const config: Config = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
+const config = {
+  darkMode: ['class'],
+  content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
+  prefix: '',
   theme: {
+    container: {},
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
       colors: {
-        'gold-drop': '#F1840A',
-        'rangoon-green': '#1E1E1B',
-        'oslo-gray': '#8C8C8C',
-        onyx: '#120F0E',
-        gainsboro: '#DEDDDC',
-        'battleship-gray': '#818282',
-        liver: '#4D4B4B',
-        night: '#0A0702',
-        'davy-gray': '#555655',
-        'coral-red': '#F43F41',
-        gondola: '#251813',
-        thunder: '#303030',
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        'secondary-bg': 'hsl(var(--secondary-bg))',
+        'oslo-gray': 'hsl(var(--oslo-gray))',
+        onyx: 'hsl(var(--onyx))',
+        night: 'hsl(var(--night))',
+        'tab-bg': 'hsl(var(--tab-bg))',
+        thunder: 'hsl(var(--thunder))',
+        gainsboro: 'hsl(var(--gainsboro))',
+        'disabled-button': 'hsl(var(--disabled-button))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
       },
     },
   },
-  plugins: [],
-};
+  plugins: [require('tailwindcss-animate')],
+} satisfies Config;
+
 export default config;

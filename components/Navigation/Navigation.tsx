@@ -1,5 +1,7 @@
 'use client';
 
+import { useNotificationsStoreContext } from '@/providers/sockets';
+import { Observer } from 'mobx-react-lite';
 import { signOut } from 'next-auth/react';
 import { Button } from '../Button';
 import Bell from '../icons/Bell';
@@ -10,9 +12,7 @@ import Message from '../icons/Message';
 import More from '../icons/More';
 import NavItem from './NavItem';
 import ProfileItem from './ProfileItem';
-import ThemeSwitch from './ThemeSwitch';
-import { useNotificationsStoreContext } from '@/providers/sockets';
-import { Observer } from 'mobx-react-lite';
+import { ThemeSwitch } from './ThemeSwitch';
 
 const Navigation = () => {
   const {
@@ -27,7 +27,7 @@ const Navigation = () => {
         <NavItem icon={<Message />} label="Messages" href="/messages" disabled />
         <NavItem icon={<Bookmark />} label="Bookmarks" href="/bookmarks" />
         <NavItem icon={<More />} label="More" href="/more" disabled />
-        <div className="h-[1px] w-full bg-rangoon-green" />
+        <div className="bg-secondary-bg h-[1px] w-full" />
         <Observer>{() => <NavItem icon={<Bell />} label="Notifications" href="/notifications" badgeNumber={notifications.unreadCount} />}</Observer>
         <ProfileItem label="Profile" href="/profile" />
       </div>
