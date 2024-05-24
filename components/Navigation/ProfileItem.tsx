@@ -21,8 +21,8 @@ const ProfileItem = ({ className, label, href = '#' }: Props) => {
     <div className={cn('flex w-full items-center justify-between rounded-lg px-4 py-2 text-oslo-gray')}>
       <Link
         className={cn(
-          'flex w-full items-center justify-between gap-4 rounded-lg py-2 text-gainsboro',
-          'transition-colors duration-200 hover:text-gainsboro/80',
+          'text-primary-foreground/80 flex w-full items-center justify-between gap-4 rounded-lg py-2',
+          'hover:text-primary-foreground/50 transition-colors duration-200',
           selected && 'text-foreground hover:text-foreground',
           className
         )}

@@ -21,8 +21,6 @@ async function handleUnlikePost(postId: string) {
 const PostActions = async ({ post }: Props) => {
   const isLiked = await didUserLikePost(post.id);
 
-  console.log('isLiked', isLiked);
-
   return (
     <div className="flex items-center gap-3">
       <LikeButton likePost={isLiked ? handleUnlikePost : handleLikePost} id={post.id} isLiked={isLiked} />

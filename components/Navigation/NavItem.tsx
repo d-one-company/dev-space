@@ -23,10 +23,10 @@ const NavItem = ({ className, icon, label, badgeNumber, disabled, href = '#' }: 
     <Link
       href={href}
       className={cn(
-        'flex w-full items-center justify-between gap-4 rounded-lg px-4 py-2 text-gainsboro',
-        'transition-colors duration-200 hover:text-gainsboro/80',
+        'text-primary-foreground/80 flex w-full items-center justify-between gap-4 rounded-lg px-4 py-2',
+        'hover:text-primary-foreground/50 transition-colors duration-200',
         selected && 'text-foreground hover:text-foreground',
-        disabled && 'pointer-events-none cursor-not-allowed text-gainsboro/50',
+        disabled && 'text-disabled-button pointer-events-none cursor-not-allowed',
         className
       )}
     >
