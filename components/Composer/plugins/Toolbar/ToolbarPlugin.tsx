@@ -28,7 +28,7 @@ function ToolbarPlugin() {
           editor.setEditorState(editor.parseEditorState(EMPTY_STATE));
           mutation.mutate(stringifiedEditorState);
         }}
-        className="bg-transparent text-white transition-colors duration-200 hover:bg-oslo-gray/20"
+        className="hover:text-primary-foreground bg-transparent text-oslo-gray transition-colors duration-200 hover:bg-transparent"
       >
         <ArrowBigRight />
       </Button>
