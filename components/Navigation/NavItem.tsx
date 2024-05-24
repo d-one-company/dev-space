@@ -23,8 +23,8 @@ const NavItem = ({ className, icon, label, badgeNumber, disabled, href = '#' }: 
     <Link
       href={href}
       className={cn(
-        'text-primary-foreground/80 flex w-full items-center justify-between gap-4 rounded-lg px-4 py-2',
-        'hover:text-primary-foreground/50 transition-colors duration-200',
+        'text-primary-foreground flex w-full items-center justify-between gap-4 rounded-lg px-4 py-2',
+        'hover:text-primary-foreground/80 transition-colors duration-200',
         selected && 'text-foreground hover:text-foreground',
         disabled && 'text-disabled-button pointer-events-none cursor-not-allowed',
         className
