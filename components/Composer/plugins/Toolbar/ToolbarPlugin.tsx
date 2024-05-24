@@ -20,7 +20,7 @@ function ToolbarPlugin() {
   });
 
   return (
-    <div className="flex w-full items-center justify-between rounded-b-xl bg-rangoon-green px-2 py-2" ref={toolbarRef}>
+    <div className="bg-secondary-bg flex w-full items-center justify-between rounded-b-xl px-2 py-2" ref={toolbarRef}>
       <CodeInput editor={editor} />
       <Button
         onClick={() => {
@@ -28,7 +28,7 @@ function ToolbarPlugin() {
           editor.setEditorState(editor.parseEditorState(EMPTY_STATE));
           mutation.mutate(stringifiedEditorState);
         }}
-        className="bg-transparent text-white transition-colors duration-200 hover:bg-battleship-gray/20"
+        className="hover:text-primary-foreground bg-transparent text-oslo-gray transition-colors duration-200 hover:bg-transparent"
       >
         <ArrowBigRight />
       </Button>

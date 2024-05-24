@@ -12,8 +12,8 @@ const LikeButton = ({ likePost, id, isLiked }: Props) => {
         likePost(id);
       }}
       className={cn(
-        'flex w-fit items-center gap-1 rounded-lg bg-onyx px-3 py-2 transition-colors duration-200 hover:bg-gold-drop/10',
-        isLiked ? 'bg-gold-drop/10 text-gold-drop' : 'text-oslo-gray'
+        'hover:bg-foreground/10 flex w-fit items-center gap-1 rounded-[8px] bg-onyx px-3 py-2 transition-colors duration-200',
+        isLiked ? 'bg-foreground/10 text-foreground' : 'text-oslo-gray'
       )}
     >
       <ThumbsUp className="size-5" />

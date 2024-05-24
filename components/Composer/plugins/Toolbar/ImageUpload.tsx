@@ -25,7 +25,7 @@ const ImageUpload = ({ editor }: Props) => {
   return (
     <>
       <input ref={fileInputRef} type="file" style={{ display: 'none' }} accept="image/*" onChange={handleImageUpload} />
-      <Button className="hover:bg-battleship-gray/20 bg-transparent text-white transition-colors duration-200" onClick={() => fileInputRef.current?.click()}>
+      <Button className="bg-transparent text-white transition-colors duration-200 hover:bg-oslo-gray/20" onClick={() => fileInputRef.current?.click()}>
         <Camera />
       </Button>
     </>
