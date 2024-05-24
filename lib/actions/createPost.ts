@@ -7,6 +7,7 @@ import { eq } from 'drizzle-orm';
 import { getServerSession } from 'next-auth';
 import pusherServer from '../pusher/pusherServer';
 import clearCachesByServerAction from '../utils/revalidatePath';
+import createNewPostNotification from './createNewPostNotification';
 
 export default async function createPost(content: string) {
   const session = await getServerSession(authOptions);
@@ -22,7 +23,6 @@ export default async function createPost(content: string) {
       })
       .returning();
 
-    // Update the feed for the user and their followers
     const followers = await db.query.follows.findMany({
       where: eq(follows.followeeId, userId),
       columns: {
@@ -32,29 +32,16 @@ export default async function createPost(content: string) {
 
     if (followers.length > 0) {
       for (const follower of followers) {
-        // Create notifications, update feed
-        await db.insert(notifications).values({
-          userId: follower.followerId,
-          createdBy: userId,
-          type: 'newPost',
-          postId: post.id,
-        });
-
         await db.insert(feed).values({
           postAuthorId: userId,
           userId: follower.followerId,
           postId: post.id,
         });
 
-        await pusherServer.trigger(follower.followerId, 'post:new', {
-          type: 'newPost',
-          postId: post.id,
-          content: post.content,
-          createdBy: userId,
-        });
+        await createNewPostNotification(post.id, userId, follower.followerId);
       }
     }
-    // Update the user's feed
+
     await db.insert(feed).values({
       postAuthorId: userId,
       userId,
