@@ -16,7 +16,7 @@ const Feed = ({ posts }: FeedProps) => {
       </div>
       <Tabs defaultValue="account" className="mt-5 w-full">
         <TabsList className="gap-5">
-          <TabsTrigger className="flex items-center gap-2 rounded-lg bg-gondola px-4 py-2" value="account">
+          <TabsTrigger className="bg-tab-bg flex items-center gap-2 rounded-lg px-4 py-2" value="account">
             <Heart size={18} fill="#F43F41" stroke="#F43F41" />
             Following
           </TabsTrigger>

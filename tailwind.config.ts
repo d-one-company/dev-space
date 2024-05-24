@@ -17,7 +17,7 @@ const config = {
         'oslo-gray': 'hsl(var(--oslo-gray))',
         onyx: 'hsl(var(--onyx))',
         night: 'hsl(var(--night))',
-        gondola: 'hsl(var(--gondola))',
+        'tab-bg': 'hsl(var(--tab-bg))',
         thunder: 'hsl(var(--thunder))',
         gainsboro: 'hsl(var(--gainsboro))',
         'disabled-button': 'hsl(var(--disabled-button))',

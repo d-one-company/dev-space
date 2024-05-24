@@ -4,7 +4,7 @@ import { Button } from '../Button';
 const IntroducingPro = () => {
   return (
     <div className="flex w-full flex-col items-start gap-5 rounded-lg bg-onyx p-4">
-      <div className="flex w-full items-center justify-between text-white">
+      <div className="text-primary-foreground flex w-full items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="bg-foreground flex items-center rounded-md p-0.5 text-black">
             <ArrowUp size={15} />
