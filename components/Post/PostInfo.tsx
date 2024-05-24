@@ -11,7 +11,7 @@ type PostInfo = {
 const PostInfo = ({ author, createdAt }: PostInfo) => {
   return (
     <div className="flex items-center gap-2">
-      <Link href={'/' + author.username}>
+      <Link href={'/' + author?.username}>
         <Avatar className="size-9">
           <AvatarImage src={author?.image || 'https://github.com/shadcn.png'} />
         </Avatar>

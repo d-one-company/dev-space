@@ -36,7 +36,7 @@ const NavItem = ({ icon, label, badgeNumber, disabled, href = '#' }: Props) => {
         {cloneElement(icon, { className: 'size-5' })}
         {label}
       </div>
-      {badgeNumber && <Badge variant={theme === 'dark' ? 'secondary' : 'default'}> {badgeNumber} </Badge>}
+      {!!badgeNumber && <Badge variant={theme === 'dark' ? 'secondary' : 'default'}> {badgeNumber} </Badge>}
     </Link>
   );
 };
