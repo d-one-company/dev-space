@@ -17,7 +17,7 @@ const PostInfo = ({ author, createdAt }: PostInfo) => {
         </Avatar>
       </Link>
       <div className="text-primary-foreground flex flex-col items-start justify-between">
-        <Link href={'/' + author.username} className="text-base">
+        <Link href={'/' + author?.username} className="text-base">
           {author?.name}
         </Link>
         <p className="text-sm text-oslo-gray">{getTimePassed(createdAt)}</p>
