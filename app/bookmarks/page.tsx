@@ -1,9 +1,9 @@
 import Feed from '@/components/Feed/Feed';
 import Sidebar from '@/components/Sidebar/Sidebar';
-import getBookarkedPosts from '@/lib/queries/posts/getBookmarkedPosts';
+import getBookmarkedPosts from '@/lib/queries/posts/getBookmarkedPosts';
 
 const Page = async () => {
-  const bookmakredPosts = await getBookarkedPosts();
+  const bookmakredPosts = await getBookmarkedPosts();
 
   return (
     <section className="flex items-start">
