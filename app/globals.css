@@ -4,27 +4,25 @@
 
 @layer base {
   :root {
-    --foreground: 32 92% 49%; /* orange color*/
-
+    --foreground: 32 92% 49%;
     --secondary-bg: 30, 7%, 60%;
     --oslo-gray: 38, 9%, 24%;
-    --onyx: 5, 8%, 72%;
+    --onyx: 0, 8%, 88%;
     --night: 55, 38%, 89%;
     --tab-bg: 0, 8%, 88%;
     --primary-foreground: 0, 0%, 0%;
-    --disabled-button: 40, 2%, 34%; /* disabled button color */
+    --disabled-button: 40, 2%, 34%;
   }
 
   .dark {
-    --foreground: 32 92% 49%; /* orange color*/
-
-    --secondary-bg: 60 7% 11%; /* toolbar background */
-    --oslo-gray: 120, 1%, 34%; /* main gray text */
-    --onyx: 15, 13%, 6%; /* secondary bg --- editor */
-    --night: 38, 67%, 2%; /* main bg color */
-    --tab-bg: 17, 32%, 11%; /* tab bg color */
-    --primary-foreground: 210 40% 98%; /* white */
-    --disabled-button: 40, 2%, 34%; /* disabled button color */
+    --foreground: 32 92% 49%;
+    --secondary-bg: 60 7% 11%;
+    --oslo-gray: 120, 1%, 34%;
+    --onyx: 15, 13%, 6%;
+    --night: 38, 67%, 2%;
+    --tab-bg: 17, 32%, 11%;
+    --primary-foreground: 210 40% 98%;
+    --disabled-button: 40, 2%, 34%;
   }
 }
 
