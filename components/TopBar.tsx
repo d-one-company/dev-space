@@ -2,7 +2,7 @@ import Search from './Search';
 
 const TopBar = () => {
   return (
-    <div className="border-secondary-bg flex w-full items-center border-b py-3 pl-10 pr-5">
+    <div className="border-secondary-bg flex h-[60px] w-full items-center border-b py-3 pl-10 pr-5">
       <p className="min-w-[250px] whitespace-nowrap text-oslo-gray">dev-space</p>
       <Search />
       <div className="flex min-w-[300px] items-center justify-between gap-3 px-3">

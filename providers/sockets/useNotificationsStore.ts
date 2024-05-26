@@ -71,7 +71,7 @@ const useNotificationsStore = () => {
     addNotification: notification => {
       const index = store.notifications.notificationsList.findIndex(n => n.id === notification.id);
       if (index === -1) {
-        store.notifications.notificationsList.push(notification);
+        store.notifications.notificationsList.unshift(notification);
         if (notification.isRead === false) store.notifications.unreadCount++;
       }
     },

@@ -27,7 +27,7 @@ const Post = async ({ post }: PostProps) => {
   const isBookmarked = await didUserBookmarkedPost(post.id);
 
   return (
-    <div className="flex w-full flex-col gap-4 rounded-lg border border-oslo-gray border-opacity-20 p-4">
+    <div className="flex h-fit w-full flex-col gap-4 rounded-lg border border-oslo-gray border-opacity-20 p-4">
       <div className="flex w-full items-center justify-between">
         <PostInfo author={post.author} createdAt={post.createdAt} />
         <BookmarkButton isBookmarked={isBookmarked} id={post.id} bookmarPost={isBookmarked ? handleRemoveBookmark : handleBookmarkPost} />
