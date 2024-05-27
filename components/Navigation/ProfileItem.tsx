@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils/cn';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { cloneElement } from 'react';
+import { cloneElement, useEffect, useState } from 'react';
 import { Avatar, AvatarImage } from '../Avatar';
 import Cog from '../icons/Cog';
 
@@ -18,7 +18,12 @@ const ProfileItem = ({ className, label, href = '#' }: Props) => {
   const pathname = usePathname();
   const selected = pathname === href;
 
+  const [currTheme, setCurrTheme] = useState<string>('dark');
   const { theme } = useTheme();
+
+  useEffect(() => {
+    if (theme) setCurrTheme(theme);
+  }, [theme]);
 
   return (
     <div className={cn('flex w-full items-center justify-between rounded-lg px-4 py-2 text-oslo-gray')}>
@@ -26,8 +31,8 @@ const ProfileItem = ({ className, label, href = '#' }: Props) => {
         className={cn(
           'flex w-full items-center justify-between gap-4 rounded-lg py-2',
           'transition-colors duration-200',
-          theme === 'dark' ? 'text-white hover:text-white/70' : 'text-black/70 hover:text-black/90',
-          selected && (theme === 'dark' ? 'text-foreground-primary hover:text-foreground-primary' : 'text-foreground hover:text-foreground'),
+          currTheme === 'dark' ? 'text-white hover:text-white/70' : 'text-black/70 hover:text-black/90',
+          selected && (currTheme === 'dark' ? 'text-foreground-primary hover:text-foreground-primary' : 'text-foreground hover:text-foreground'),
           className
         )}
         href={href}
