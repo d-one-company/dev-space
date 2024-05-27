@@ -10,7 +10,7 @@ const Page = async () => {
       {bookmakredPosts?.length > 0 ? (
         <Feed isBookmarkPage posts={bookmakredPosts} />
       ) : (
-        <div className="flex w-full px-10 py-8 text-davy-gray">You haven&apos;t bookmarked any posts yet.</div>
+        <div className="text-davy-gray flex w-full px-10 py-8">You haven&apos;t bookmarked any posts yet.</div>
       )}
       <Sidebar />
     </section>
