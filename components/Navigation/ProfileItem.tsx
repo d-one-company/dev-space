@@ -12,9 +12,10 @@ type Props = {
   className?: string;
   label: string;
   href?: string;
+  name: string;
 };
 
-const ProfileItem = ({ className, label, href = '#' }: Props) => {
+const ProfileItem = ({ className, label, name, href = '#' }: Props) => {
   const pathname = usePathname();
   const selected = pathname === href;
 
@@ -41,7 +42,7 @@ const ProfileItem = ({ className, label, href = '#' }: Props) => {
           <Avatar className="size-7">
             <AvatarImage src="https://github.com/shadcn.png" />
           </Avatar>
-          {label}
+          <p className="flex max-w-[125px] overflow-hidden text-ellipsis whitespace-nowrap">{name}</p>
         </div>
       </Link>
       <Link href={'/settings'}>{cloneElement(<Cog />, { className: 'size-10' })}</Link>
