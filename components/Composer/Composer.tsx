@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { CodeHighlightNode, CodeNode } from '@lexical/code';
 import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
@@ -7,6 +8,8 @@ import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 import editorTheme from './EditorTheme';
 import './composer.css';
 import { ImageNode } from './nodes/ImageNode';
@@ -24,13 +27,25 @@ const editorConfig = {
 };
 
 export default function Editor() {
+  const [currTheme, setCurrTheme] = useState<string>('dark');
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    if (theme) setCurrTheme(theme);
+  }, [theme]);
+
   return (
     <LexicalComposer initialConfig={editorConfig}>
       <RichTextPlugin
         contentEditable={
-          <ContentEditable className="flex max-h-screen min-h-60 w-full flex-col overflow-y-scroll rounded-t-xl border border-transparent bg-onyx px-4 pt-4 text-oslo-gray outline-none" />
+          <ContentEditable
+            className={cn(
+              'flex max-h-screen min-h-60 w-full flex-col overflow-y-scroll rounded-t-xl border border-transparent bg-onyx px-4 pt-4 outline-none',
+              currTheme === 'dark' ? 'text-white/70' : 'text-black/70'
+            )}
+          />
         }
-        placeholder={<div className="absolute left-4 top-4 text-oslo-gray">New Post</div>}
+        placeholder={<div className={cn('absolute left-4 top-4', currTheme === 'dark' ? 'text-white/70' : 'text-black/70')}>New Post</div>}
         ErrorBoundary={LexicalErrorBoundary}
       />
       <HistoryPlugin />
