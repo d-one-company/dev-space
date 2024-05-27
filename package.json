@@ -30,6 +30,7 @@
     "@lexical/react": "^0.15.0",
     "@lexical/rich-text": "^0.15.0",
     "@lexical/selection": "^0.15.0",
+    "@lexical/text": "^0.15.0",
     "@lexical/utils": "^0.15.0",
     "@paralleldrive/cuid2": "^2.2.2",
     "@radix-ui/react-avatar": "^1.0.4",

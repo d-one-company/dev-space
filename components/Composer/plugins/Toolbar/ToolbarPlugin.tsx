@@ -2,6 +2,7 @@ import { Button } from '@/components/Button';
 import createPost from '@/lib/actions/createPost';
 import { EMPTY_STATE } from '@/lib/consts/editorEmptyState';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { $isRootTextContentEmpty } from '@lexical/text';
 import { useMutation } from '@tanstack/react-query';
 import { ArrowBigRight } from 'lucide-react';
 import { useRef } from 'react';
@@ -24,9 +25,14 @@ function ToolbarPlugin() {
       <CodeInput editor={editor} />
       <Button
         onClick={() => {
-          const stringifiedEditorState = JSON.stringify(editor.getEditorState().toJSON());
-          editor.setEditorState(editor.parseEditorState(EMPTY_STATE));
-          mutation.mutate(stringifiedEditorState);
+          editor.update(() => {
+            const empty = $isRootTextContentEmpty(false);
+            if (empty) return;
+
+            const stringifiedEditorState = JSON.stringify(editor.getEditorState().toJSON());
+            editor.setEditorState(editor.parseEditorState(EMPTY_STATE));
+            mutation.mutate(stringifiedEditorState);
+          });
         }}
         className="hover:text-primary-foreground bg-transparent text-oslo-gray transition-colors duration-200 hover:bg-transparent"
       >
