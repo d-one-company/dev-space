@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={cn(inter.className, 'bg-night')}>
         <SessionProvider>
           <ReactQueryProvider>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
               <AuthProvider>{children}</AuthProvider>
               <Toaster />
             </ThemeProvider>
