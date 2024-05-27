@@ -11,14 +11,11 @@ type NotificationExcerptProps = {
 };
 
 const NotificationExcerpt = ({ notification }: NotificationExcerptProps) => {
-  const { notificationId } = useParams() as { notificationId?: string };
-
   return (
     <Link
-      href={`/notifications/${notification.id}`}
+      href={notification.postId ? `/posts/${notification.postId}` : `/${notification.creator.username}`}
       className={cn(
-        'relative flex h-[58px] w-full items-center justify-between border-b border-b-rangoon-green px-4 text-sm',
-        notificationId === notification.id && 'bg-onyx',
+        'border-b-rangoon-green relative flex h-[58px] w-full items-center justify-between border-b px-4 text-sm',
         !notification.isRead && "after:absolute after:left-0 after:top-0 after:h-full after:w-0.5 after:bg-white after:content-['']"
       )}
     >
