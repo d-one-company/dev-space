@@ -12,7 +12,7 @@ const OfficialChannel = ({ channel }: Props) => {
         <div className="flex rounded-lg bg-thunder p-2 transition-colors duration-200 group-hover:bg-secondary-bg">
           <Image width={35} height={35} src={channel?.image || ''} alt="ProfilePhoto" />
         </div>
-        <p>{channel?.username}</p>
+        <p>{channel?.name}</p>
       </Link>
       <div className="hidden items-center gap-2 text-oslo-gray transition-all duration-200 group-hover:flex">
         <FollowButton user={channel} />
