@@ -15,7 +15,7 @@ const Feed = ({ posts, isBookmarkPage }: FeedProps) => {
   return (
     <div className={cn('z-1 flex max-h-screen w-full flex-col items-start overflow-y-auto px-10', isBookmarkPage ? 'py-5' : 'py-10')}>
       {!isBookmarkPage && (
-        <div className="relative w-full">
+        <div className="relative z-[-100] w-full">
           <Editor />
         </div>
       )}
