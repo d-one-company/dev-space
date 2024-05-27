@@ -29,6 +29,9 @@ dependencies:
   '@lexical/selection':
     specifier: ^0.15.0
     version: 0.15.0
+  '@lexical/text':
+    specifier: ^0.15.0
+    version: 0.15.0
   '@lexical/utils':
     specifier: ^0.15.0
     version: 0.15.0

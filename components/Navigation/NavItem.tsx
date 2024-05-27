@@ -12,10 +12,9 @@ type Props = {
   label: string;
   href?: string;
   badgeNumber?: number;
-  disabled?: boolean;
 };
 
-const NavItem = ({ icon, label, badgeNumber, disabled, href = '#' }: Props) => {
+const NavItem = ({ icon, label, badgeNumber, href = '#' }: Props) => {
   const pathname = usePathname();
   const selected = pathname === href;
 
@@ -33,8 +32,7 @@ const NavItem = ({ icon, label, badgeNumber, disabled, href = '#' }: Props) => {
         'flex w-full items-center justify-between gap-4 rounded-lg px-4 py-2',
         'transition-colors duration-200',
         currTheme === 'dark' ? 'text-white hover:text-white/70' : 'text-black/70 hover:text-black/90',
-        selected && (currTheme === 'dark' ? 'text-foreground-primary hover:text-foreground-primary' : 'text-foreground hover:text-foreground'),
-        disabled && (currTheme === 'dark' ? 'text-disabled-button hover:text-disabled-button' : 'text-slate-300 hover:text-slate-300')
+        selected && (currTheme === 'dark' ? 'text-foreground-primary hover:text-foreground-primary' : 'text-foreground hover:text-foreground')
       )}
     >
       <div className="flex items-center gap-4">

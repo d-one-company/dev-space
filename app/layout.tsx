@@ -1,3 +1,4 @@
+import Banner from '@/components/Banner';
 import { Toaster } from '@/components/Toast';
 import { cn } from '@/lib/utils/cn';
 import AuthProvider from '@/providers/AuthProvider';
@@ -23,6 +24,7 @@ export default function RootLayout({
         <SessionProvider>
           <ReactQueryProvider>
             <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+              <Banner />
               <AuthProvider>{children}</AuthProvider>
               <Toaster />
             </ThemeProvider>
