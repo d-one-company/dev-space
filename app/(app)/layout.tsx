@@ -1,12 +1,11 @@
 import { authOptions } from '@/auth';
 import Navigation from '@/components/Navigation/Navigation';
+import TopBar from '@/components/TopBar';
+import getNotifications from '@/lib/queries/notifications/getNotifications';
 import WebSocketsProvider from '@/providers/sockets';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
-import getFeed from '@/lib/queries/posts/getFeed';
-import TopBar from '@/components/TopBar';
 import type { PropsWithChildren } from 'react';
-import getNotifications from '@/lib/queries/notifications/getNotifications';
 
 const Layout = async ({ children }: PropsWithChildren) => {
   const session = await getServerSession(authOptions);
