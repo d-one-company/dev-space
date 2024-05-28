@@ -9,7 +9,7 @@ const OfficialChannel = ({ channel }: Props) => {
   return (
     <div className="group flex w-full cursor-pointer items-center justify-between gap-4 text-oslo-gray transition-colors duration-200 hover:text-oslo-gray/80">
       <Link href={'/' + channel.username} className="flex items-center gap-4">
-        <div className="flex rounded-lg bg-thunder p-2 transition-colors duration-200 group-hover:bg-secondary-bg">
+        <div className="bg-thunder group-hover:bg-secondary-bg flex rounded-lg p-2 transition-colors duration-200">
           <Image width={35} height={35} src={channel?.image || ''} alt="ProfilePhoto" />
         </div>
         <p>{channel?.name}</p>
