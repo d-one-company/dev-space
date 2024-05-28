@@ -3,6 +3,7 @@ export type Post = {
   content: string;
   createdAt: Date;
   likeCount?: number;
+  userId?: string;
   author: {
     id: string;
     name: string | null;
