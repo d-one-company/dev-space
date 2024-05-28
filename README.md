@@ -97,7 +97,10 @@ Notifications page displays all the notifications you have received. There are t
 
 ### Additional Featurs
 
-**Search** - allows users to find users by searching for their name of username.
+**Search** - allows users to find users by searching for their name or username.
+
 **Official Channels** - list of the official/company channels.
-**Dark/Light Theme** - allows users to switch between dark and light theme.
+
+**Dark/Light Theme** - allows users to switch between dark and light themes.
+
 **Settings** - allows users to change their username.
