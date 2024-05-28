@@ -17,7 +17,7 @@ const Navigation = async () => {
         <NavItem icon={<Bookmark />} label="Bookmarks" href="/bookmarks" />
         <div className="bg-secondary-bg h-[1px] w-full" />
         <NotificationItem />
-        <ProfileItem name={user?.username || user?.name || ''} label="Profile" href="/profile" />
+        <ProfileItem name={user?.username || user?.name || ''} label="Profile" href={`/${user?.username}`} />
       </div>
       <div className="flex flex-col items-start gap-4">
         {/* todo: figure out design for this */}
