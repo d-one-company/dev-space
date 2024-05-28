@@ -22,7 +22,6 @@ const Navigation = async () => {
       <div className="flex flex-col items-start gap-4">
         {/* todo: figure out design for this */}
         <LogoutButton />
-        <ThemeSwitch />
       </div>
     </aside>
   );

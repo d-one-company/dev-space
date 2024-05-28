@@ -21,6 +21,7 @@ const config = {
         thunder: 'hsl(var(--thunder))',
         gainsboro: 'hsl(var(--gainsboro))',
         'disabled-button': 'hsl(var(--disabled-button))',
+        'post-border': 'hsl(var(--post-border))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',

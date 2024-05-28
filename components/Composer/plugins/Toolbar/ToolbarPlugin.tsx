@@ -21,7 +21,7 @@ function ToolbarPlugin() {
   });
 
   return (
-    <div className="bg-secondary-bg flex w-full items-center justify-between rounded-b-xl px-2 py-2" ref={toolbarRef}>
+    <div className="border-post-border flex w-full items-center justify-between rounded-b-xl border-x-2 border-b-2 bg-onyx px-2 py-2" ref={toolbarRef}>
       <CodeInput editor={editor} />
       <Button
         onClick={() => {
