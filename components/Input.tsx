@@ -9,7 +9,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, type,
   return (
     <div className={cn('focus-within:ring-foreground flex w-full items-center rounded-md bg-onyx px-3 py-2 text-sm ring-1 ring-transparent', className)}>
       {icon && <div className="mr-3">{icon}</div>}
-      <input type={type} className={cn('flex-grow text-oslo-gray outline-none placeholder:text-oslo-gray', className)} ref={ref} {...props} />
+      <input type={type} className={cn('flex-grow bg-transparent text-oslo-gray outline-none placeholder:text-oslo-gray')} ref={ref} {...props} />
     </div>
   );
 });
