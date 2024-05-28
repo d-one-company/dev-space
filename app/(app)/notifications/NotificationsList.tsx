@@ -1,8 +1,8 @@
 'use client';
 
+import { useNotificationsStoreContext } from '@/providers/sockets';
 import { Observer } from 'mobx-react-lite';
 import NotificationExcerpt from './NotificationExcerpt';
-import { useNotificationsStoreContext } from '@/providers/sockets';
 
 const NotificationsList = () => {
   const {
@@ -12,7 +12,7 @@ const NotificationsList = () => {
   return (
     <Observer>
       {() => (
-        <div className="border-rangoon-green flex h-full min-h-[calc(100vh-108px)] w-full flex-col border-l border-r">
+        <div className="flex h-full min-h-[calc(100vh-108px)] w-full flex-col border-l border-r border-oslo-gray">
           {notifications.notificationsList?.map(notification => <NotificationExcerpt key={notification.id} notification={notification} />)}
         </div>
       )}
