@@ -5,7 +5,7 @@ const Sidebar = async () => {
   const officialChannels = await getOfficialChannels();
 
   return (
-    <div className="flex max-h-screen w-[600px] flex-col items-start gap-10 overflow-y-auto px-10 py-10">
+    <div className="flex max-h-[calc(100vh-105px)] w-[600px] flex-col items-start gap-10 overflow-y-auto px-10 py-10">
       <TrendingChannels officialChannels={officialChannels} />
     </div>
   );

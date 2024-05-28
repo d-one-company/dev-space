@@ -18,11 +18,11 @@ const Navigation = async () => {
   if (!user) redirect('/signin');
 
   return (
-    <aside className="sticky top-0 col-span-1 hidden h-screen max-h-screen flex-col justify-between px-6 py-8 sm:flex">
+    <aside className="sticky top-0 col-span-1 hidden h-[calc(100vh-105px)] max-h-screen flex-col justify-between px-6 py-8 sm:flex">
       <div className="flex flex-col items-center gap-2">
         <NavItem icon={<Home />} label="My feed" href="/" />
         <NavItem icon={<Bookmark />} label="Bookmarks" href="/bookmarks" />
-        <div className="bg-secondary-bg h-[1px] w-full" />
+        <div className="h-[1px] w-full bg-secondary-bg" />
         <NotificationItem />
         <ProfileDialog updateUser={updateUser} user={user} />
       </div>

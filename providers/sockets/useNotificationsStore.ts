@@ -60,7 +60,7 @@ const useNotificationsStore = () => {
 
     markAsRead: notificationId => {
       for (const notification of store.notifications.notificationsList) {
-        if (notification.id === notificationId) {
+        if (notification.id === notificationId && notification.isRead === false) {
           notification.isRead = true;
           store.notifications.unreadCount--;
           break;
