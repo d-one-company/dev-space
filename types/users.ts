@@ -8,3 +8,13 @@ export type UserProfile = {
   following_count: number;
   is_following: boolean;
 };
+
+export type User = {
+  id: string;
+  name: string | null;
+  email: string;
+  image: string | null;
+  username: string | null;
+  emailVerified: Date | null;
+  createdAt: Date;
+};
