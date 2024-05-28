@@ -24,7 +24,7 @@ const SearchResult = ({ user, onClick }: Props) => {
       )}
     >
       {user.image && <img src={user.image} alt={user.name} className="h-10 w-10 rounded-full" />}
-      <p>{user.name}</p>
+      <p>{user.username}</p>
     </Link>
   );
 };
