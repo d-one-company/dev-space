@@ -10,6 +10,7 @@ import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import ComposerPlaceholder from './ComposerPlaceholder';
 import editorTheme from './EditorTheme';
 import './composer.css';
 import { ImageNode } from './nodes/ImageNode';
@@ -45,7 +46,7 @@ export default function Editor() {
             )}
           />
         }
-        placeholder={<div className={cn('absolute left-4 top-[18px]', currTheme === 'dark' ? 'text-white/70' : 'text-black/40')}>New Post</div>}
+        placeholder={<ComposerPlaceholder currTheme={currTheme} />}
         ErrorBoundary={LexicalErrorBoundary}
       />
       <HistoryPlugin />
