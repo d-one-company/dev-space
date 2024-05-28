@@ -31,13 +31,13 @@ const ProfileDialog = ({ user, updateUser }: ProfileDialogProps) => {
           <span className="text-primary-foreground line-clamp-1">{user.username}</span>
         </button>
       </DialogTrigger>
-      <DialogOverlay className="bg-black">
+      <DialogOverlay className={cn(currTheme === 'dark' ? 'bg-black/50' : 'bg-white/60')}>
         <DialogPortal>
-          <DialogContent className="border-foreground bg-night">
+          <DialogContent className="border-post-border bg-night">
             <DialogTitle className="text-primary-foreground">Edit Profile</DialogTitle>
             <form className="flex flex-col gap-4">
               <Input
-                className={cn('focus-within:ring-foreground/50 bg-night placeholder:text-oslo-gray', currTheme === 'dark' ? 'text-white/70' : 'text-black/70')}
+                className={cn('focus-within:ring-post-border ring-post-border bg-night placeholder:text-oslo-gray')}
                 name="username"
                 placeholder="Username"
                 value={username}
