@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils/cn';
+import { useNotificationsStoreContext } from '@/providers/sockets';
 import { Notification } from '@/types/notifications';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
@@ -12,6 +13,9 @@ type NotificationExcerptProps = {
 };
 
 const NotificationExcerpt = ({ notification }: NotificationExcerptProps) => {
+  const {
+    store: { markAsRead },
+  } = useNotificationsStoreContext();
   const [currTheme, setCurrTheme] = useState<string>('dark');
   const { theme } = useTheme();
 
@@ -21,7 +25,8 @@ const NotificationExcerpt = ({ notification }: NotificationExcerptProps) => {
 
   return (
     <Link
-      href={notification.postId ? `/posts/${notification.postId}` : `/${notification.creator.username}`}
+      onClick={() => markAsRead(notification.id)}
+      href={notification.postId ? `/posts/${notification.postId}?notificationId=${notification.id}` : `/${notification.creator.username}?notificationId=${notification.id}`}
       className={cn(
         'relative flex h-[58px] w-full items-center justify-between border-b border-b-oslo-gray px-4 text-sm',
         !notification.isRead && "after:absolute after:left-0 after:top-0 after:h-full after:w-0.5 after:bg-white after:content-['']"
