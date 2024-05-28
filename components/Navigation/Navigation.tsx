@@ -22,7 +22,7 @@ const Navigation = async () => {
       <div className="flex flex-col items-center gap-2">
         <NavItem icon={<Home />} label="My feed" href="/" />
         <NavItem icon={<Bookmark />} label="Bookmarks" href="/bookmarks" />
-        <div className="bg-secondary-bg h-[1px] w-full" />
+        <div className="h-[1px] w-full bg-secondary-bg" />
         <NotificationItem />
         <ProfileDialog updateUser={updateUser} user={user} />
       </div>

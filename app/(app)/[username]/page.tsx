@@ -6,14 +6,18 @@ import { getServerSession } from 'next-auth';
 import Image from 'next/image';
 import { notFound, redirect } from 'next/navigation';
 import FollowButton from './FollowButton';
+import markNotificationAsRead from '@/lib/actions/markNotificationAsRead';
 
 type PageProps = {
   params: {
     username: string;
   };
+  searchParams: {
+    notificationId?: string;
+  };
 };
 
-const Page = async ({ params: { username } }: PageProps) => {
+const Page = async ({ params: { username }, searchParams: { notificationId } }: PageProps) => {
   const session = await getServerSession(authOptions);
   const currentUserId = session?.user?.id;
   if (!currentUserId) redirect('/signin');
@@ -21,6 +25,9 @@ const Page = async ({ params: { username } }: PageProps) => {
   const user = await getUserProfile(username);
   if (!user) notFound();
   const posts = await getUserPosts(username);
+  if (notificationId) {
+    markNotificationAsRead(notificationId);
+  }
 
   return (
     <div className="flex w-full flex-col items-center gap-10 p-10">
@@ -28,10 +35,10 @@ const Page = async ({ params: { username } }: PageProps) => {
         {user.image && <Image className="size-20 rounded-full" src={user.image} alt="ProfilePhoto" width={100} height={100} />}
         <div className="flex flex-col items-start gap-3">
           <div className="flex items-center gap-3">
-            <span className="text-primary-foreground text-lg font-bold">{username}</span>
+            <span className="text-lg font-bold text-primary-foreground">{username}</span>
             {currentUserId !== user.id && <FollowButton user={user} />}
           </div>
-          <div className="text-primary-foreground flex w-full items-center gap-10 text-sm">
+          <div className="flex w-full items-center gap-10 text-sm text-primary-foreground">
             <span>
               {posts.length} {posts.length === 1 ? 'post' : 'posts'}
             </span>
