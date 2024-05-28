@@ -1,13 +1,12 @@
+import updateUserProfile from '@/lib/actions/updateUserProfile';
 import getCurrentUser from '@/lib/queries/users/getCurrentUser';
+import { redirect } from 'next/navigation';
 import Bookmark from '../icons/Bookmark';
 import Home from '../icons/Home';
 import LogoutButton from './LogoutButton';
 import NavItem from './NavItem';
 import NotificationItem from './NotificationItem';
-import { ThemeSwitch } from './ThemeSwitch';
 import ProfileDialog from './ProfileDialog';
-import { redirect } from 'next/navigation';
-import updateUserProfile from '@/lib/actions/updateUserProfile';
 
 async function updateUser(userId: string, username: string) {
   'use server';
@@ -23,9 +22,8 @@ const Navigation = async () => {
       <div className="flex flex-col items-center gap-2">
         <NavItem icon={<Home />} label="My feed" href="/" />
         <NavItem icon={<Bookmark />} label="Bookmarks" href="/bookmarks" />
-        <div className="h-[1px] w-full bg-secondary-bg" />
+        <div className="bg-secondary-bg h-[1px] w-full" />
         <NotificationItem />
-
         <ProfileDialog updateUser={updateUser} user={user} />
       </div>
       <div className="flex flex-col items-start gap-4">
