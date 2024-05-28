@@ -56,7 +56,7 @@ const PostContent = ({ post }: Props) => {
           contentEditable={
             <ContentEditable
               className={cn(
-                'border-post-border flex max-h-screen min-h-60 w-full flex-col overflow-y-scroll rounded-xl border-2 px-4 pt-4 text-oslo-gray outline-none',
+                'border-post-border flex max-h-screen min-h-60 w-full flex-col rounded-xl border-2 px-4 pt-4 text-oslo-gray outline-none',
                 currTheme === 'dark' ? 'bg-onyx text-white/70' : 'bg-white text-black/70'
               )}
             />
