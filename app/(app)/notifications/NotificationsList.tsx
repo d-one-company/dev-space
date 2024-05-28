@@ -12,7 +12,7 @@ const NotificationsList = () => {
   return (
     <Observer>
       {() => (
-        <div className="flex h-full min-h-[calc(100vh-108px)] w-full flex-col border-l border-r border-oslo-gray">
+        <div className="flex h-full min-h-[calc(100vh-153px)] w-full flex-col border-l border-r border-oslo-gray">
           {notifications.notificationsList?.map(notification => <NotificationExcerpt key={notification.id} notification={notification} />)}
         </div>
       )}
